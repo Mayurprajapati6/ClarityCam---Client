@@ -52,3 +52,5 @@ export default tseslint.config({
   },
 })
 ```
+
+-  npm i socket.io-client
