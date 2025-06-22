@@ -3,7 +3,7 @@ import { SocketContext } from "../Context/SocketContext";
 
 const CreateRoom: React.FC = () => {
 
-    const socket = useContext(SocketContext); // <-- just use socket directly
+    const { socket } = useContext(SocketContext);
 
     const initRoom = () => {
         if (socket && socket.connected) {
