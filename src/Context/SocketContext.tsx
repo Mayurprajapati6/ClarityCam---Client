@@ -24,6 +24,11 @@ export const SocketProvider: React.FC<Props> = ({ children }) => {
     //state variable to store the userId
     const [user,setUser] = useState<Peer>(); // new peer user
 
+    const fetchParticipantList = ({roomId, participants} : {roomId: string, participants: string[]}) => {
+        console.log("Fetched room participants");
+        console.log(roomId,participants);
+    }
+
     useEffect(() => {
 
         const userId = UUIDv4();
@@ -36,6 +41,8 @@ export const SocketProvider: React.FC<Props> = ({ children }) => {
         }
 
         socket.on("room-create", enterRoom);
+
+        socket.on("get-users", fetchParticipantList);
 
         
     }, []);
